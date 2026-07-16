@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kruthikanjali Chitrala | Portfolio</title>
+    
+    <!-- Favicon using SVG data URI based on initials -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='30' fill='%230ea5e9'/><text y='62' x='15' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>KC</text></svg>">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk (Headings) and Inter (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Customized Themes & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            900: '#030712',
+                            800: '#0b0f19',
+                            700: '#111827',
+                            600: '#1f2937',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for animations and smooth visual effects */
+        .glass {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-premium {
+            background: radial-gradient(120% 120% at 50% 10%, rgba(15, 23, 42, 0.8) 0%, rgba(3, 7, 18, 0.95) 100%);
+            border: 1px solid rgba(14, 165, 233, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+        }
+        .border-glow:hover {
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+        
+        /* Floating graphic elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+        .floating-blob {
+            animation: float 8s ease-in-out infinite;
+        }
+        .floating-blob-slow {
+            animation: float 12s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-dark-900 text-gray-100 font-sans antialiased overflow-x-hidden">
+
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <!-- Radial Gradient Lights -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-900/30 blur-[120px] floating-blob"></div>
+        <div class="absolute bottom-[10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-500/10 blur-[150px] floating-blob-slow"></div>
+        <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full bg-purple-900/10 blur-[140px] floating-blob"></div>
+        <!-- Technical Grid Background -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-60"></div>
+    </div>
+
+    <header class="sticky top-0 z-40 w-full transition-all duration-300 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-sky-600 flex items-center justify-center font-display font-bold text-white text-lg tracking-wider shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    KC
+                </div>
+                <div>
+                    <span class="block font-display font-bold text-lg leading-none text-white tracking-tight">Kruthikanjali</span>
+                    <span class="block font-mono text-[10px] text-brand-500 mt-1 uppercase tracking-widest">Roll: 23R11A6755</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-brand-500 transition-colors duration-200">About</a>
+                <a href="#skills" class="hover:text-brand-500 transition-colors duration-200">Skills</a>
+                <a href="#experience" class="hover:text-brand-500 transition-colors duration-200">Experience</a>
+                <a href="#projects" class="hover:text-brand-500 transition-colors duration-200">Projects</a>
+                <a href="#education" class="hover:text-brand-500 transition-colors duration-200">Education</a>
+                <a href="#certifications" class="hover:text-brand-500 transition-colors duration-200">Certifications</a>
+                <a href="#contact" class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white hover:bg-brand-500 hover:border-brand-500 transition-all duration-300">Contact</a>
+            </nav>
+
+            <!-- Mobile menu button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 focus:outline-none">
+                <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-dark-900/95 backdrop-blur-lg px-4 py-4 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-brand-500 transition-all">About</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-brand-500 transition-all">Skills</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-brand-500 transition-all">Experience</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-brand-500 transition-all">Projects</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-brand-500 transition-all">Education</a>
+            <a href="#certifications" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/5 hover:text-brand-500 transition-all">Certifications</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-semibold bg-brand-500 text-white text-center">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 md:space-y-32 py-12 md:py-20">
+
+        <section id="about" class="min-h-[80vh] flex flex-col justify-center items-center text-center space-y-8 relative">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass border border-brand-500/20 text-xs text-brand-500 font-semibold uppercase tracking-wider mb-2">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+                <span>B.Tech CSE Student (Data Science)</span>
+            </div>
+
+            <h1 class="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-none text-white max-w-4xl">
+                Hi, I'm <span class="bg-gradient-to-r from-brand-500 via-sky-400 to-indigo-400 bg-clip-text text-transparent">Kruthikanjali Chitrala</span>
+            </h1>
+
+            <p class="text-xl sm:text-2xl font-light text-gray-400 font-display">
+                I specialize in <span class="text-white font-medium underline decoration-brand-500 decoration-2 underline-offset-4" id="typing-element">Machine Learning</span>
+            </p>
+
+            <p class="text-base sm:text-lg text-gray-400 max-w-2xl leading-relaxed">
+                Analytical and driven, specializing in Machine Learning, robust Data Structures, and intelligent database solutions. Passionate about designing predictive ML algorithms and efficient state-space architectures.
+            </p>
+
+            <!-- CTA Actions Grid -->
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center pt-4 w-full max-w-md">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-sky-600 text-white font-semibold flex items-center justify-center space-x-2 hover:shadow-lg hover:shadow-brand-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                    <span>View Projects</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl glass border border-white/10 text-gray-200 hover:text-white hover:border-brand-500 hover:bg-white/5 flex items-center justify-center space-x-2 transition-all duration-300">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>Contact Me</span>
+                </a>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-[-10px] left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 text-gray-500 animate-bounce">
+                <span class="text-xs font-mono uppercase tracking-widest">Scroll Down</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </div>
+        </section>
+
+        <section id="skills" class="space-y-12">
+            <div class="text-center md:text-left max-w-xl">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Technical Skills</h2>
+                <div class="w-16 h-1 bg-brand-500 mt-3 mx-auto md:mx-0 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Structured competencies across major technology verticals, including Artificial Intelligence paradigms, data systems, and object-oriented architectures.</p>
+            </div>
+
+            <!-- Interactive filter buttons -->
+            <div class="flex flex-wrap justify-center md:justify-start gap-2.5 mb-8">
+                <button onclick="filterSkills('all')" id="btn-skill-all" class="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider glass border border-brand-500 text-white transition-all">All Skills</button>
+                <button onclick="filterSkills('ml')" id="btn-skill-ml" class="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider glass border border-white/5 text-gray-400 hover:text-white transition-all">Machine Learning & AI</button>
+                <button onclick="filterSkills('prog')" id="btn-skill-prog" class="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider glass border border-white/5 text-gray-400 hover:text-white transition-all">Programming & Tools</button>
+                <button onclick="filterSkills('cse')" id="btn-skill-cse" class="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider glass border border-white/5 text-gray-400 hover:text-white transition-all">CS Core Concepts</button>
+            </div>
+
+            <!-- Skills Cards Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Skill Group: ML & AI -->
+                <div class="skill-card glass rounded-2xl p-6 space-y-5 border-glow transition-all duration-300" data-category="ml">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center">
+                            <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white">Machine Learning & AI</h3>
+                    </div>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">scikit-learn & Python ML Stack</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Supervised Learning, Model Selection, Metrics Evaluation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">Data Engineering Libraries</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">NumPy arrays, Pandas DataFrame transformations, Exploratory Analysis</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">ML Algorithms</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Regression Modeling, Classification Pipelines, Feature Selection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2.5 py-1 text-xs rounded bg-white/5 border border-white/5 text-gray-300">AI Paradigms</span>
+                        <span class="px-2.5 py-1 text-xs rounded bg-white/5 border border-white/5 text-gray-300">Data Science</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group: Programming Languages -->
+                <div class="skill-card glass rounded-2xl p-6 space-y-5 border-glow transition-all duration-300" data-category="prog">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center">
+                            <i data-lucide="code" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white">Programming Stack</h3>
+                    </div>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">Languages</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Python script engineering, Core Java, C System language</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">SQL Database Admin</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Relational Queries, Database Schemas, DBMS Operations</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">Productivity & Layouts</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Excel analysis, PowerPoint presentations, semantic HTML / CSS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2.5 py-1 text-xs rounded bg-white/5 border border-white/5 text-gray-300">Modern Tools</span>
+                        <span class="px-2.5 py-1 text-xs rounded bg-white/5 border border-white/5 text-gray-300">Systems Syntax</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group: Core Computer Science -->
+                <div class="skill-card glass rounded-2xl p-6 space-y-5 border-glow transition-all duration-300" data-category="cse">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white">CS Core Infrastructure</h3>
+                    </div>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">Data Structures & Algorithms</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Arrays, Linked Lists, Trees, Graphs, Hashing</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">OOP & Polymorphism</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Inheritance, Encapsulation, Design Patterns</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-5 h-5 rounded-md bg-brand-500/10 text-brand-500 flex items-center justify-center mt-0.5 shrink-0">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-200">Operating Systems</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Processes, Threads, Memory Management, File Systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2.5 py-1 text-xs rounded bg-white/5 border border-white/5 text-gray-300">DBMS Modules</span>
+                        <span class="px-2.5 py-1 text-xs rounded bg-white/5 border border-white/5 text-gray-300">Memory Architectures</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="space-y-12">
+            <div class="text-center md:text-left max-w-xl">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Software Engineering Experience</h2>
+                <div class="w-16 h-1 bg-brand-500 mt-3 mx-auto md:mx-0 rounded-full"></div>
+            </div>
+
+            <!-- Single large experience timeline node -->
+            <div class="relative pl-8 md:pl-10 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-brand-500 before:to-transparent">
+                <!-- Anchor Dot -->
+                <div class="absolute left-1.5 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-500 shadow-[0_0_10px_#0ea5e9]"></div>
+                
+                <div class="glass rounded-2xl p-6 md:p-8 space-y-4 border-glow transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-4">
+                        <div>
+                            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-500">Software Engineering Intern</span>
+                            <h3 class="font-display font-bold text-xl md:text-2xl text-white mt-1">HBIC Solutions</h3>
+                        </div>
+                        <span class="inline-flex self-start sm:self-center px-3 py-1 rounded-full text-xs font-medium text-brand-500 bg-brand-500/10 border border-brand-500/20">
+                            Python, ML, and Power BI
+                        </span>
+                    </div>
+
+                    <p class="text-sm text-gray-400 leading-relaxed max-w-4xl">
+                        Formulated predictive models using custom Python implementations. Configured, designed, and published interactive visual intelligence boards through Microsoft Power BI to extract data trends and enable business forecasting.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Core Contributions:</h4>
+                        <ul class="space-y-2 text-xs text-gray-400 pl-4 list-disc">
+                            <li>Formulated structured predictive models using Python for predictive analysis.</li>
+                            <li>Configured and published dynamic operational dashboards with Microsoft Power BI.</li>
+                            <li>Practiced software development workflows focusing on ML algorithm optimization.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="space-y-12">
+            <div class="text-center md:text-left max-w-xl">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Featured Projects</h2>
+                <div class="w-16 h-1 bg-brand-500 mt-3 mx-auto md:mx-0 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Hands-on systems engineering, utilizing machine learning algorithms and heuristic state graph pathfinders.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="glass rounded-2xl overflow-hidden border-glow group flex flex-col justify-between transition-all duration-300">
+                    <div>
+                        <!-- Project Graphic representation -->
+                        <div class="h-48 bg-gradient-to-br from-brand-900/60 to-dark-800 border-b border-white/5 p-6 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition-all duration-500"></div>
+                            <div class="flex items-center justify-between z-10">
+                                <span class="px-2.5 py-1 rounded text-[10px] font-mono uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20">Security Analysis</span>
+                                <i data-lucide="shield-check" class="w-5 h-5 text-brand-500"></i>
+                            </div>
+                            <div class="z-10">
+                                <h3 class="font-display font-bold text-2xl text-white tracking-tight">Detection of Phishing URLs</h3>
+                                <p class="text-xs font-mono text-brand-500 mt-1">Supervised Learning Classification</p>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Engineered a machine learning system to intelligently classify domains and distinguish authentic URLs from malicious indicators. Leveraged features based on pattern length, layout indicators, and structure.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">Python</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">scikit-learn</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">Pandas</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">Classification</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-dark-900/20 flex gap-4">
+                        <button onclick="openProjectModal('phishing')" class="flex-1 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white/5 text-white hover:bg-white/10 flex items-center justify-center space-x-1.5 transition-all">
+                            <i data-lucide="info" class="w-3.5 h-3.5"></i>
+                            <span>View Details</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="glass rounded-2xl overflow-hidden border-glow group flex flex-col justify-between transition-all duration-300">
+                    <div>
+                        <!-- Project Graphic representation -->
+                        <div class="h-48 bg-gradient-to-br from-dark-800 to-indigo-900/40 border-b border-white/5 p-6 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all duration-500"></div>
+                            <div class="flex items-center justify-between z-10">
+                                <span class="px-2.5 py-1 rounded text-[10px] font-mono uppercase bg-indigo-500/20 text-indigo-400 border border-indigo-500/20">Artificial Intelligence</span>
+                                <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
+                            </div>
+                            <div class="z-10">
+                                <h3 class="font-display font-bold text-2xl text-white tracking-tight">AI Vacuum Cleaner Pathfinding</h3>
+                                <p class="text-xs font-mono text-indigo-400 mt-1">A* Path Search Heuristic</p>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Formulated an automated, intelligent simulation of an ambient room-cleaning agent utilizing the $A^*$ Search Algorithm. Solves spatial optimization by calculating shortest paths around static obstacles.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">Python</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">A* Algorithm</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">Heuristic Search</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300 font-mono">State-Space Graphs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-dark-900/20 flex gap-4">
+                        <button onclick="openProjectModal('cleaner')" class="flex-1 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white/5 text-white hover:bg-white/10 flex items-center justify-center space-x-1.5 transition-all">
+                            <i data-lucide="info" class="w-3.5 h-3.5"></i>
+                            <span>View Details</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="space-y-12">
+            <div class="text-center md:text-left max-w-xl">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Education History</h2>
+                <div class="w-16 h-1 bg-brand-500 mt-3 mx-auto md:mx-0 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 max-w-4xl mx-auto md:mx-0">
+                <!-- GCET Card -->
+                <div class="glass rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-glow transition-all duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center shrink-0">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs font-mono text-brand-500 font-semibold uppercase tracking-wider">2023 - 2027</span>
+                            <h3 class="font-display font-bold text-xl text-white">Geethanjali College of Engineering and Technology</h3>
+                            <p class="text-sm text-gray-400">Bachelor of Technology in Computer Science and Engineering (Data Science)</p>
+                        </div>
+                    </div>
+                    <div class="self-stretch md:self-auto border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 md:pl-6 shrink-0 flex flex-col justify-center">
+                        <span class="text-xs font-mono text-gray-500 uppercase tracking-widest block">Affiliation</span>
+                        <span class="font-display font-bold text-sm text-white mt-0.5">UGC Autonomous, Accredited by NBA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="space-y-12">
+            <div class="text-center md:text-left max-w-xl">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Professional Credentials</h2>
+                <div class="w-16 h-1 bg-brand-500 mt-3 mx-auto md:mx-0 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Authorized administrative and engineering certs validating software proficiency and design systems expertise.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Oracle -->
+                <div class="glass rounded-2xl p-6 border-glow flex items-start space-x-4 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="database" class="w-5.5 h-5.5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono text-orange-400">Oracle Academy Certified</span>
+                        <h3 class="font-display font-bold text-lg text-white">Database Programming with SQL</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Certified in Database Programming, Java Fundamentals, and custom DBMS Modules.</p>
+                    </div>
+                </div>
+
+                <!-- Cisco -->
+                <div class="glass rounded-2xl p-6 border-glow flex items-start space-x-4 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="network" class="w-5.5 h-5.5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono text-blue-400">Cisco Certified Administrator</span>
+                        <h3 class="font-display font-bold text-lg text-white">Python Essentials 1 & Networking</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Certified credentials verifying object-oriented syntax paradigms and computing topology configurations.</p>
+                    </div>
+                </div>
+
+                <!-- Hackathon 1 -->
+                <div class="glass rounded-2xl p-6 border-glow flex items-start space-x-4 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="trophy" class="w-5.5 h-5.5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono text-emerald-400 font-bold uppercase">Innovator Circle</span>
+                        <h3 class="font-display font-bold text-lg text-white">Cyber Congress Hackathon</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Engaged in designing security architecture blueprints to mitigate localized web threat footprints.</p>
+                    </div>
+                </div>
+
+                <!-- Hackathon 2 -->
+                <div class="glass rounded-2xl p-6 border-glow flex items-start space-x-4 transition-all duration-300">
+                    <div class="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="sparkles" class="w-5.5 h-5.5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono text-purple-400 font-bold uppercase">Participant</span>
+                        <h3 class="font-display font-bold text-lg text-white">Geenovate Hackathon Challenge</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Pitched and built prototype solution loops representing AI interfaces and data analysis graphs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="space-y-12">
+            <div class="text-center max-w-xl mx-auto">
+                <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Get In Touch</h2>
+                <div class="w-16 h-1 bg-brand-500 mt-3 mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-4">Let's collaborate on data modeling, analytics, or software systems engineering.</p>
+            </div>
+
+            <!-- Glass contact widget block -->
+            <div class="max-w-4xl mx-auto glass rounded-3xl p-8 md:p-12 border-glow relative overflow-hidden">
+                <div class="absolute -right-24 -top-24 w-48 h-48 bg-brand-500/10 rounded-full blur-3xl"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+                    <!-- Left block: Social & Academic links -->
+                    <div class="space-y-6">
+                        <h3 class="font-display font-bold text-2xl text-white">Contact & Profiles</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Feel free to reach out directly through email or connect with me on LinkedIn. I am always open to discussing new opportunities or machine learning projects.
+                        </p>
+                        
+                        <div class="space-y-4 pt-2">
+                            <!-- LinkedIN -->
+                            <a href="https://www.linkedin.com/in/chitrala-kruthika-8a7a733b5" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3.5 text-xs text-gray-300 hover:text-brand-500 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-white/5 group-hover:bg-brand-500/10 flex items-center justify-center transition-colors">
+                                    <i data-lucide="linkedin" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <span>linkedin.com/in/chitrala-kruthika-8a7a733b5</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right block: Email copy boxes -->
+                    <div class="space-y-4 flex flex-col justify-center">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-gray-400 uppercase tracking-widest block">Personal Contact</span>
+                            <div class="flex items-center justify-between p-3.5 rounded-xl bg-dark-900/60 border border-white/5">
+                                <span class="text-xs font-mono text-white truncate" id="p-mail-address">kruthikachitrala@gmail.com</span>
+                                <button onclick="copyToClipboard('p-mail-address')" class="px-3 py-1.5 rounded-lg bg-brand-500/10 hover:bg-brand-500 hover:text-white text-brand-500 text-[10px] font-semibold transition-all">
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-gray-400 uppercase tracking-widest block">Academic Contact</span>
+                            <div class="flex items-center justify-between p-3.5 rounded-xl bg-dark-900/60 border border-white/5">
+                                <span class="text-xs font-mono text-white truncate" id="a-mail-address">23r11a6755@geet.edu.in</span>
+                                <button onclick="copyToClipboard('a-mail-address')" class="px-3 py-1.5 rounded-lg bg-brand-500/10 hover:bg-brand-500 hover:text-white text-brand-500 text-[10px] font-semibold transition-all">
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+
+                        <a href="mailto:kruthikachitrala@gmail.com" class="mt-4 px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-sky-600 text-white font-semibold text-center text-xs uppercase tracking-wider hover:shadow-lg hover:shadow-brand-500/10 hover:scale-[1.01] transition-all duration-300">
+                            Launch Mail Application
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/5 bg-dark-900 py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-gray-500 font-mono">
+                &copy; <span id="current-year">2026</span> Kruthikanjali Chitrala. Built with precision and care.
+            </p>
+            <div class="flex space-x-6 text-xs text-gray-500 font-mono">
+                <span>Roll: 23R11A6755</span>
+                <span>•</span>
+                <span>B.Tech CSE (DS)</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-dark-900/80 backdrop-blur-md items-center justify-center p-4">
+        <div class="glass-premium rounded-3xl max-w-2xl w-full p-6 md:p-8 space-y-6 relative border border-white/10 animate-in fade-in zoom-in-95 duration-300">
+            <!-- Close Button -->
+            <button onclick="closeProjectModal()" class="absolute right-5 top-5 p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5">
+                <i data-lucide="x" class="w-5.5 h-5.5"></i>
+            </button>
+
+            <!-- Modal Content (Dynamically Injected) -->
+            <div id="modal-content" class="space-y-4">
+                <!-- Content goes here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden glass border border-brand-500/30 px-5 py-3 rounded-xl text-xs text-white shadow-xl shadow-brand-500/10 flex items-center space-x-2 animate-in slide-in-from-bottom-5">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        // DOM Elements
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const typingElement = document.getElementById('typing-element');
+        const projectModal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        // Typing effect terms
+        const terms = ["Machine Learning Model Design", "Predictive Analytics Architecture", "Data Science Paradigms", "Algorithms & Robust Structures"];
+        let termIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+
+        function handleTyping() {
+            const currentTerm = terms[termIdx];
+            if (isDeleting) {
+                typingElement.textContent = currentTerm.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typingElement.textContent = currentTerm.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIdx === currentTerm.length) {
+                typeSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                termIdx = (termIdx + 1) % terms.length;
+                typeSpeed = 500; // Pause before typing next word
+            }
+
+            setTimeout(handleTyping, typeSpeed);
+        }
+
+        // Toggle mobile menu navigation panel
+        function toggleMobileMenu() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Copy contact parameter value to clipboard (using fallback execCommand for iframe limits)
+        function copyToClipboard(elementId) {
+            const textToCopy = document.getElementById(elementId).textContent;
+            
+            // Create fallback input element
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast("Email address copied to clipboard!");
+                } else {
+                    showToast("Failed to copy text automatically.");
+                }
+            } catch (err) {
+                showToast("An error occurred during copy execution.");
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+
+        // Show toast confirmation
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Skill matrix grid card filtering logic
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const buttons = [
+                { key: 'all', btn: document.getElementById('btn-skill-all') },
+                { key: 'ml', btn: document.getElementById('btn-skill-ml') },
+                { key: 'prog', btn: document.getElementById('btn-skill-prog') },
+                { key: 'cse', btn: document.getElementById('btn-skill-cse') }
+            ];
+
+            // Change active visual button styles
+            buttons.forEach(item => {
+                if (item.key === category) {
+                    item.btn.className = "px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider glass border border-brand-500 text-white transition-all";
+                } else {
+                    item.btn.className = "px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider glass border border-white/5 text-gray-400 hover:text-white transition-all";
+                }
+            });
+
+            // Filter grid nodes
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Project detailed descriptive database dictionary
+        const projectDatabase = {
+            phishing: `
+                <div class="space-y-4">
+                    <span class="px-2.5 py-1 rounded text-[10px] font-mono uppercase bg-brand-500/10 text-brand-500 border border-brand-500/20 inline-block">Security Analysis Case-study</span>
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-white">Detection of Phishing URLs</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Constructed a custom supervised Machine Learning workflow focusing on web classification metrics. The goal was to build a system that inspects active domain structural fingerprints to alert local nodes to threat targets.
+                    </p>
+                    <div class="space-y-2">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-white">Design & Features:</h4>
+                        <ul class="text-xs text-gray-400 pl-4 list-disc space-y-1">
+                            <li>Indicator Feature Extraction: Analyzed network patterns, domain age indicators, and structural elements.</li>
+                            <li>Applied classification heuristics using Pandas, NumPy, and scikit-learn libraries.</li>
+                            <li>Integrated validation models with high precision results to prevent alert fatigue.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 border-t border-white/5">
+                        <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300">Python</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300">Feature Extraction</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300">Classification</span>
+                    </div>
+                </div>
+            `,
+            cleaner: `
+                <div class="space-y-4">
+                    <span class="px-2.5 py-1 rounded text-[10px] font-mono uppercase bg-indigo-500/20 text-indigo-400 border border-indigo-500/20 inline-block">Artificial Intelligence Simulation</span>
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-white">AI Vacuum Cleaner Pathfinding</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Formulated an automated room-cleaning simulation using the $A^*$ search algorithm in Python. This simulation models an optimization agent navigating grid layouts while avoiding obstacles dynamically.
+                    </p>
+                    <div class="space-y-2">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-white">Design & Features:</h4>
+                        <ul class="text-xs text-gray-400 pl-4 list-disc space-y-1">
+                            <li>A* Cost Function: Designed specific heuristics utilizing distance offsets to optimize cleaning paths.</li>
+                            <li>Configurable Grid Layout: Designed real-time obstacle definitions to test optimization strategies.</li>
+                            <li>Demonstrated algorithmic knowledge in state-space graphs and localized cost calculations.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 border-t border-white/5">
+                        <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300">Python</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300">A* Search</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] bg-white/5 text-gray-300">State Space Search</span>
+                    </div>
+                </div>
+            `
+        };
+
+        // Open Modal popup
+        function openProjectModal(key) {
+            modalContent.innerHTML = projectDatabase[key] || '<p class="text-xs text-gray-500">Project details not found.</p>';
+            projectModal.classList.remove('hidden');
+            projectModal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        // Close Modal popup
+        function closeProjectModal() {
+            projectModal.classList.add('hidden');
+            projectModal.classList.remove('flex');
+        }
+
+        // Catch clicking outside modal window content wrapper
+        window.addEventListener('click', function(e) {
+            if (e.target === projectModal) {
+                closeProjectModal();
+            }
+        });
+
+        // Initialize script logic on load
+        window.onload = function() {
+            // Set current footer year dynamically
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            // Start Typwriter Loop
+            handleTyping();
+            // Build Initial SVG Icons
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
